@@ -1,0 +1,33 @@
+{
+  "name": "Slick Performance",
+  "version": "0.0.1",
+  "description": "Enhance site performance",
+  "manifest_version": 2,
+  "permissions": [
+    "webNavigation",
+    "tabs",
+    "activeTab",
+    "storage",
+    "webNavigation",
+    "http://*/",
+    "https://*/"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://pinchofyum.com/*",
+        "http://127.0.0.1:8081/embed-demo/perf/*"
+      ],
+      "run_at": "document_start",
+      "js": [
+        "injected.js"
+      ]
+    }
+  ]
+}
